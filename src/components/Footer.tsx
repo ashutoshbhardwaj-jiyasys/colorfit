@@ -103,7 +103,7 @@ export default function Footer() {
 
         <div className="mt-8 flex flex-col gap-2 text-xs text-paper/40 sm:flex-row sm:items-center sm:justify-between">
           <p>© {year} Colorfit Packaging and Designs. All rights reserved.</p>
-          <p>Precision Craft &amp; Colour Mastery.</p>
+          <p>Crafted With ❤️ By <a href="https://jiyasys.com" target="_blank" rel="noopener noreferrer" className="text-brand-magenta hover:underline font-semibold transition-all">Jiyasys Softwares</a>.</p>
         </div>
       </div>
 
