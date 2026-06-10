@@ -76,14 +76,20 @@ export default function Process() {
         lightText={true}
       />
 
+      {/* Mobile Swipe Indicator */}
+      <div className="flex items-center justify-center gap-2 text-[10px] font-bold uppercase tracking-[0.2em] text-paper/30 md:hidden mt-6 select-none">
+        <span>Swipe to explore</span>
+        <span className="inline-block animate-bounce-horizontal">→</span>
+      </div>
+
       <div
         ref={track}
-        className="mt-12 flex gap-6 px-6 md:mt-20 md:flex-nowrap md:px-16"
+        className="mt-12 flex gap-6 px-6 overflow-x-auto snap-x snap-mandatory no-scrollbar md:mt-20 md:overflow-x-visible md:snap-none md:flex-nowrap md:px-16"
       >
         {STEPS.map((s) => (
           <article
             key={s.num}
-            className="flex w-[80vw] shrink-0 flex-col justify-between rounded-2xl border border-paper/10 bg-paper/[0.03] p-8 md:h-[44vh] md:w-[40vw] md:p-12 hover:border-accent/30 transition-colors duration-300"
+            className="flex w-[80vw] shrink-0 snap-start flex-col justify-between rounded-2xl border border-paper/10 bg-paper/[0.03] p-8 md:h-[44vh] md:w-[40vw] md:p-12 hover:border-accent/30 transition-colors duration-300"
           >
             <span className="font-display text-6xl font-black text-accent md:text-8xl">
               {s.num}

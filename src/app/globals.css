@@ -67,3 +67,17 @@
     transform: none !important;
   }
 }
+
+/* Custom horizontal bounce animation for mobile swipe indicator */
+@keyframes bounce-x {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(4px);
+  }
+}
+.animate-bounce-horizontal {
+  animation: bounce-x 1s infinite ease-in-out;
+}
+
