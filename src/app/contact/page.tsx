@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import PageHeader from "@/components/PageHeader";
+import SectionHeader from "@/components/SectionHeader";
 import ContactForm from "@/components/ContactForm";
 import ColorDots from "@/components/ColorDots";
 
@@ -11,11 +11,27 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <>
-      <PageHeader
-        eyebrow="Start a project"
-        title="Let's build something worth noticing."
-        intro="Tell us a little about your product and where you want to take it. We reply to all inquiries within two business days."
-      />
+      {/* Page Header with Studio Background */}
+      <header className="relative overflow-hidden border-b border-line/10 pb-16 mb-16 isolate">
+        {/* Subtle Horizontal Gradient of Brand Colors */}
+        <div className="absolute inset-0 bg-gradient-to-r from-brand-violet/10 via-brand-magenta/5 via-brand-orange/5 via-brand-sky/5 to-brand-leaf/10 pointer-events-none -z-10" />
+        
+        {/* Soft Radial light blooms for studio feel */}
+        <div className="absolute top-0 left-1/4 w-[50%] h-full rounded-full bg-brand-magenta/10 blur-[100px] pointer-events-none -z-10" />
+        <div className="absolute top-0 right-1/4 w-[40%] h-full rounded-full bg-brand-sky/10 blur-[80px] pointer-events-none -z-10" />
+
+        <SectionHeader
+          eyebrow="Start a project"
+          title="Let's build something worth noticing."
+          pt="pt-36 md:pt-44"
+          pb="pb-6"
+        />
+        <div className="container-x flex flex-col items-center text-center">
+          <p className="max-w-2xl text-lg text-muted leading-relaxed font-sans">
+            Tell us a little about your product and where you want to take it. We reply to all inquiries within two business days.
+          </p>
+        </div>
+      </header>
 
       <section className="container-x pb-32">
         <div className="grid gap-16 md:grid-cols-12">
@@ -60,10 +76,34 @@ export default function ContactPage() {
             </div>
             <div>
               <h2 className="text-xs uppercase tracking-[0.2em] text-muted font-bold">Follow Us</h2>
-              <div className="mt-2 flex flex-wrap gap-4 font-display text-base font-bold">
-                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="hover:text-brand-magenta transition-colors">Instagram</a>
-                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="hover:text-brand-violet transition-colors">LinkedIn</a>
-                <a href="https://wa.me" target="_blank" rel="noopener noreferrer" className="hover:text-brand-sky transition-colors">WhatsApp</a>
+              <div className="mt-3 flex flex-wrap gap-3">
+                <a
+                  href="https://instagram.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex h-10 w-10 items-center justify-center rounded-full bg-paper hover:bg-brand-magenta hover:text-white border border-line text-ink transition-all duration-300 shadow-sm group"
+                  aria-label="Instagram"
+                >
+                  <i className="fa-brands fa-instagram text-lg transition-transform duration-300 group-hover:scale-110"></i>
+                </a>
+                <a
+                  href="https://linkedin.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex h-10 w-10 items-center justify-center rounded-full bg-paper hover:bg-brand-violet hover:text-white border border-line text-ink transition-all duration-300 shadow-sm group"
+                  aria-label="LinkedIn"
+                >
+                  <i className="fa-brands fa-linkedin-in text-lg transition-transform duration-300 group-hover:scale-110"></i>
+                </a>
+                <a
+                  href="https://wa.me"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex h-10 w-10 items-center justify-center rounded-full bg-paper hover:bg-brand-sky hover:text-white border border-line text-ink transition-all duration-300 shadow-sm group"
+                  aria-label="WhatsApp"
+                >
+                  <i className="fa-brands fa-whatsapp text-lg transition-transform duration-300 group-hover:scale-110"></i>
+                </a>
               </div>
               <ColorDots size="sm" className="mt-6" />
             </div>

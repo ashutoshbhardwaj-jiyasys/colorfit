@@ -1,88 +1,57 @@
 "use client";
 
-import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import Reveal from "@/components/anim/Reveal";
 import { PROJECTS } from "@/lib/data";
 
-const CATEGORIES = [
-  { id: "all", label: "All Work" },
-  { id: "brand", label: "Brand Identity" },
-  { id: "packaging", label: "Packaging Design" },
-  { id: "graphic", label: "Graphic Design" },
-];
-
 export default function WorkGrid() {
-  const [selected, setSelected] = useState("all");
-
-  const filteredProjects = PROJECTS.filter((p) => {
-    if (selected === "all") return true;
-    const catLower = p.category.toLowerCase();
-    return catLower.includes(selected);
-  });
-
   return (
-    <div className="space-y-12">
-      {/* Category Filter Buttons */}
-      <div className="flex flex-wrap gap-3 border-b border-line pb-6">
-        {CATEGORIES.map((cat) => {
-          const isActive = selected === cat.id;
-          return (
-            <button
-              key={cat.id}
-              onClick={() => setSelected(cat.id)}
-              className={`rounded-full px-5 py-2.5 text-sm font-bold transition-all duration-300 border ${
-                isActive
-                  ? "bg-ink border-ink text-white"
-                  : "bg-white border-line text-muted hover:border-ink hover:text-ink cursor-pointer"
-              }`}
-            >
-              {cat.label}
-            </button>
-          );
-        })}
-      </div>
+    <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+      {PROJECTS.map((p, i) => (
+        <Reveal
+          key={`${p.slug}-${i}`}
+          y={40}
+          className="w-full"
+        >
+          <Link href="/work" className="group block cursor-pointer">
+            <div className="relative aspect-[3/4] overflow-hidden rounded-2xl shadow-sm bg-line">
+              {/* Product Mockup Image or Video */}
+              {p.video ? (
+                <video
+                  src={p.video}
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                />
+              ) : (
+                <Image
+                  src={p.image}
+                  alt={p.title}
+                  fill
+                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                />
+              )}
 
-      {/* Projects Grid */}
-      <div className="grid gap-x-8 gap-y-16 md:grid-cols-2">
-        {filteredProjects.map((p, i) => (
-          <Reveal
-            key={`${selected}-${p.slug}`}
-            y={40}
-            className={i % 2 === 1 ? "md:mt-20" : ""}
-          >
-            <Link href="/work" className="group block">
-              <div
-                className={`relative aspect-[4/3] overflow-hidden rounded-2xl transition-transform duration-500 group-hover:scale-[1.01] shadow-sm ${p.tile}`}
-              >
-                {/* Visual title inside mockups */}
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <span className="font-display text-3xl font-black uppercase tracking-widest opacity-80 scale-90 group-hover:scale-100 transition-transform duration-500">
-                    {p.title}
-                  </span>
-                </div>
-                <div className="absolute inset-0 bg-ink/0 transition-colors duration-500 group-hover:bg-ink/10" />
-                <span className="absolute bottom-5 right-5 flex h-12 w-12 translate-y-3 items-center justify-center rounded-full bg-accent text-white opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100 shadow-md">
-                  →
-                </span>
-              </div>
-              <div className="mt-5 flex items-baseline justify-between">
-                <h3 className="font-display text-xl font-black text-ink">
+              {/* Hover Overlay Details */}
+              <div className="absolute inset-0 bg-ink/80 flex flex-col items-center justify-center p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10 backdrop-blur-[2px]">
+                <h3 className="text-white font-display text-lg md:text-xl font-black uppercase text-center tracking-wider max-w-xs leading-snug">
                   {p.title}
                 </h3>
-                <span className="text-sm text-muted font-bold">{p.year}</span>
+                <p className="text-white/60 text-xs uppercase tracking-[0.2em] mt-2 mb-6 text-center">
+                  {p.category}
+                </p>
+                <span className="text-accent hover:text-white border-b border-accent hover:border-white text-xs font-bold uppercase tracking-widest transition-colors duration-300">
+                  View Project
+                </span>
               </div>
-              <p className="text-sm text-muted font-medium mt-1">{p.category}</p>
-            </Link>
-          </Reveal>
-        ))}
-      </div>
-
-      {filteredProjects.length === 0 && (
-        <div className="py-20 text-center text-muted">
-          No projects found in this category.
-        </div>
-      )}
+            </div>
+          </Link>
+        </Reveal>
+      ))}
     </div>
   );
 }

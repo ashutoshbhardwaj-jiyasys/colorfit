@@ -61,15 +61,39 @@ export default function Footer() {
             <h3 className="mb-4 text-xs uppercase tracking-[0.2em] text-paper/40">
               Social
             </h3>
-            <ul className="space-y-2 text-sm text-paper/80">
+            <ul className="space-y-3 text-sm text-paper/80">
               <li>
-                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="hover:text-accent">Instagram</a>
+                <a
+                  href="https://instagram.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2.5 hover:text-brand-magenta transition-colors duration-300 group"
+                >
+                  <i className="fa-brands fa-instagram text-base opacity-70 group-hover:opacity-100 group-hover:scale-110 transition-all"></i>
+                  Instagram
+                </a>
               </li>
               <li>
-                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="hover:text-accent">LinkedIn</a>
+                <a
+                  href="https://linkedin.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2.5 hover:text-brand-violet transition-colors duration-300 group"
+                >
+                  <i className="fa-brands fa-linkedin-in text-base opacity-70 group-hover:opacity-100 group-hover:scale-110 transition-all"></i>
+                  LinkedIn
+                </a>
               </li>
               <li>
-                <a href="https://wa.me" target="_blank" rel="noopener noreferrer" className="hover:text-accent">WhatsApp Business</a>
+                <a
+                  href="https://wa.me"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2.5 hover:text-brand-sky transition-colors duration-300 group"
+                >
+                  <i className="fa-brands fa-whatsapp text-base opacity-70 group-hover:opacity-100 group-hover:scale-110 transition-all"></i>
+                  WhatsApp Business
+                </a>
               </li>
             </ul>
           </div>

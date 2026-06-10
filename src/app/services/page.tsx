@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
-import PageHeader from "@/components/PageHeader";
-import Reveal from "@/components/anim/Reveal";
+import SectionHeader from "@/components/SectionHeader";
+import ServiceRow from "@/components/ServiceRow";
 import { SERVICES } from "@/lib/data";
-import ColorDots from "@/components/ColorDots";
 
 export const metadata: Metadata = {
   title: "Services — Colorfit",
@@ -20,70 +19,69 @@ const NUM_COLORS = [
 export default function ServicesPage() {
   return (
     <>
-      <PageHeader
-        eyebrow="What we do"
-        title="Design services connecting deep strategy to the retail shelf."
-        intro="We integrate color science, structural design, and layout precision across every format so your brand is flawless from mockup to print."
-      />
+      {/* Page Header with Studio Background */}
+      <header className="relative overflow-hidden border-b border-line/10 pb-16 isolate">
+        {/* Subtle Horizontal Gradient of Brand Colors */}
+        <div className="absolute inset-0 bg-gradient-to-r from-brand-violet/10 via-brand-magenta/5 via-brand-orange/5 via-brand-sky/5 to-brand-leaf/10 pointer-events-none -z-10" />
+        
+        {/* Soft Radial light blooms for studio feel */}
+        <div className="absolute top-0 left-1/4 w-[50%] h-full rounded-full bg-brand-magenta/10 blur-[100px] pointer-events-none -z-10" />
+        <div className="absolute top-0 right-1/4 w-[40%] h-full rounded-full bg-brand-sky/10 blur-[80px] pointer-events-none -z-10" />
 
-      <section className="container-x pb-24">
+        <SectionHeader
+          eyebrow="What we do"
+          title="Design services connecting deep strategy to the retail shelf."
+          pt="pt-36 md:pt-44"
+          pb="pb-6"
+        />
+        <div className="container-x flex flex-col items-center text-center">
+          <p className="max-w-2xl text-lg text-muted leading-relaxed font-sans">
+            We integrate color science, structural design, and layout precision across every format so your brand is flawless from mockup to print.
+          </p>
+        </div>
+      </header>
+
+      <section className="container-x pb-18">
         <div className="border-t border-line">
           {SERVICES.map((s, idx) => (
-            <Reveal key={s.num}>
-              <article className="group grid gap-6 border-b border-line py-12 md:grid-cols-12 md:gap-10 md:py-16">
-                <div className="md:col-span-1">
-                  <span className={`font-display text-sm font-black ${NUM_COLORS[idx] || 'text-accent'}`}>
-                    {s.num}
-                  </span>
-                </div>
-                <div className="md:col-span-4">
-                  <h2 className="font-display text-3xl font-black md:text-4xl text-ink">
-                    {s.title}
-                  </h2>
-                </div>
-                <div className="md:col-span-7">
-                  <p className="max-w-xl text-lg text-muted font-sans leading-relaxed">{s.description}</p>
-                  <ul className="mt-6 flex flex-wrap gap-2">
-                    {s.tags.map((t) => (
-                      <li
-                        key={t}
-                        className="rounded-full border border-line px-3 py-1 text-xs text-muted font-bold"
-                      >
-                        {t}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </article>
-            </Reveal>
+            <ServiceRow
+              key={s.num}
+              num={s.num}
+              numColor={NUM_COLORS[idx] || "text-accent"}
+              title={s.title}
+              description={s.description}
+              tags={s.tags}
+              extraInfo={s.extraInfo}
+              detailsList={s.detailsList}
+            />
           ))}
         </div>
       </section>
 
-      {/* Production & Calibration Standards block as per Section 07 guidelines */}
-      <section className="bg-white py-20 border-t border-line">
-        <div className="container-x">
-          <div className="max-w-3xl">
-            <div className="flex items-center gap-3 mb-6">
-              <ColorDots size="sm" />
-              <h2 className="font-display text-2xl font-black text-ink">Structural &amp; Print Standards</h2>
+      {/* Production & Calibration Standards block using SectionHeader */}
+      <section className="bg-white py-20  border-line">
+        <SectionHeader
+          eyebrow="Standards"
+          title="Structural & Print Standards"
+          pt="pt-0"
+          pb="pb-8"
+        />
+        <div className="container-x flex flex-col items-center text-center">
+          <p className="text-muted mb-12 text-base leading-relaxed max-w-2xl">
+            We hold our physical outputs to the highest industry benchmarks. All files are pre-press calibrated and cross-checked against substrate limitations before submission.
+          </p>
+          <div className="grid gap-8 sm:grid-cols-2 text-left w-full max-w-4xl">
+            <div className="border border-line rounded-xl p-6 hover:border-brand-magenta/30 transition-colors duration-300">
+              <h3 className="font-display font-black text-lg text-ink">Dieline &amp; Bleed standards</h3>
+              <p className="text-muted text-sm mt-3 leading-relaxed">
+                All dielines are built in vector formats (AI/EPS) with separate locked layers for artwork, creases, cuts, and bleeds. We maintain a minimum of 3mm bleed on all live edges and a 4mm safety margin.
+              </p>
             </div>
-            <p className="text-muted mb-10 text-base leading-relaxed">
-              We hold our physical outputs to the highest industry benchmarks. All files are pre-press calibrated and cross-checked against substrate limitations before submission.
-            </p>
-            <div className="grid gap-8 sm:grid-cols-2">
-              <div className="border border-line rounded-xl p-6 hover:border-brand-magenta/30 transition-colors duration-300">
-                <h3 className="font-display font-black text-lg text-ink">Dieline &amp; Bleed standards</h3>
-                <p className="text-muted text-sm mt-3 leading-relaxed">
-                  All dielines are built in vector formats (AI/EPS) with separate locked layers for artwork, creases, cuts, and bleeds. We maintain a minimum of 3mm bleed on all live edges and a 4mm safety margin.
-                </p>
-              </div>
-              <div className="border border-line rounded-xl p-6 hover:border-brand-orange/30 transition-colors duration-300">
-                <h3 className="font-display font-black text-lg text-ink">Colour Calibration (Delta-E)</h3>
-                <p className="text-muted text-sm mt-3 leading-relaxed">
-                  We use ISO 12647 as our baseline printing standard. Brand color consistency is strictly managed with Delta-E limits (ΔE ≤ 2.0 for primary Magenta/Black, and ΔE ≤ 3.0 for secondary palette).
-                </p>
-              </div>
+            <div className="border border-line rounded-xl p-6 hover:border-brand-orange/30 transition-colors duration-300">
+              <h3 className="font-display font-black text-lg text-ink">Colour Calibration (Delta-E)</h3>
+              <p className="text-muted text-sm mt-3 leading-relaxed">
+                We use ISO 12647 as our baseline printing standard. Brand color consistency is strictly managed with Delta-E limits (ΔE ≤ 2.0 for primary Magenta/Black, and ΔE ≤ 3.0 for secondary palette).
+              </p>
             </div>
           </div>
         </div>
