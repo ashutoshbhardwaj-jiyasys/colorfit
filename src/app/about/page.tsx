@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import SectionHeader from "@/components/SectionHeader";
 import Reveal from "@/components/anim/Reveal";
 import { STATS } from "@/lib/data";
-import ColorDots from "@/components/ColorDots";
 
 export const metadata: Metadata = {
   title: "About — Colorfit",
@@ -59,7 +58,7 @@ export default function AboutPage() {
         />
         <div className="container-x flex flex-col items-center text-center">
           <p className="max-w-2xl text-lg text-muted leading-relaxed font-sans">
-            Colorfit is a packaging and design company. Our brand reflects our conviction: vibrant, precise, and always purposeful. We treat every client's brand as if it were our own.
+            Colorfit is a packaging and design company. Our brand reflects our conviction: vibrant, precise, and always purposeful. We treat every client&apos;s brand as if it were our own.
           </p>
         </div>
       </header>

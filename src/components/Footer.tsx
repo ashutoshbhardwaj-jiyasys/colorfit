@@ -2,8 +2,6 @@
 
 import Link from "next/link";
 import { NAV_LINKS } from "@/lib/nav";
-import AnimatedHeading from "@/components/anim/AnimatedHeading";
-import MagneticButton from "@/components/anim/MagneticButton";
 import BrandLogo from "@/components/BrandLogo";
 import ColorDots from "@/components/ColorDots";
 
