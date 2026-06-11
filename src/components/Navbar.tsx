@@ -69,9 +69,12 @@ export default function Navbar() {
         <div className="hidden md:flex items-center">
           <Link
             href="/contact"
-            className="rounded-full border border-white/20 bg-white/5 hover:bg-white hover:text-ink px-5 py-2 text-[10px] font-black uppercase tracking-widest text-white transition-all duration-300 flex items-center gap-1.5 cursor-pointer"
+            className="inline-flex items-center gap-3 rounded-full bg-brand-magenta border border-transparent hover:border-white/5 px-4 py-1.5 font-black uppercase tracking-widest text-[9px] text-white hover:bg-[#222222]/40 hover:text-white transition-all duration-300 shadow-md group cursor-pointer"
           >
-            Start a project <span className="text-[10px]">↗</span>
+            Start a project
+            <span className="flex h-6 w-6 items-center justify-center rounded-full bg-white text-ink group-hover:bg-brand-magenta group-hover:text-white transition-all duration-300">
+              ↗
+            </span>
           </Link>
         </div>
 
@@ -113,13 +116,18 @@ export default function Navbar() {
               {link.label}
             </Link>
           ))}
-          <Link
-            href="/contact"
-            onClick={() => setOpen(false)}
-            className="mt-4 py-3 text-center rounded-full bg-accent text-white font-bold uppercase tracking-wider text-sm"
-          >
-            Start a project ↗
-          </Link>
+          <div className="mt-4 flex justify-center">
+            <Link
+              href="/contact"
+              onClick={() => setOpen(false)}
+              className="w-full py-2.5 px-6 inline-flex items-center justify-center gap-3 rounded-full bg-brand-magenta border border-transparent hover:border-white/5 text-white font-black uppercase tracking-widest text-xs hover:bg-[#222222]/40 hover:text-white transition-all duration-300 group"
+            >
+              Start a project
+              <span className="flex h-6 w-6 items-center justify-center rounded-full bg-white text-ink group-hover:bg-brand-magenta group-hover:text-white transition-all duration-300">
+                ↗
+              </span>
+            </Link>
+          </div>
         </nav>
       </div>
     </header>

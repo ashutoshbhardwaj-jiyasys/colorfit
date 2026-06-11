@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import Reveal from "@/components/anim/Reveal";
@@ -7,8 +8,40 @@ import { PROJECTS } from "@/lib/data";
 import SectionHeader from "@/components/SectionHeader";
 
 export default function FeaturedWork() {
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const section = sectionRef.current;
+    if (!section) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const videos = section.querySelectorAll("video");
+          videos.forEach((video) => {
+            if (entry.isIntersecting) {
+              video.play().catch((err) => {
+                // Ignore autoplay/play interruption warnings
+                console.debug("Video play interrupted:", err);
+              });
+            } else {
+              video.pause();
+            }
+          });
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    observer.observe(section);
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
+
   return (
-    <section id="work" className="bg-paper py-16 md:py-24">
+    <section ref={sectionRef} id="work" className="bg-paper py-16 md:py-24">
       <div className="container-x">
         <SectionHeader
           eyebrow="Selected work"
@@ -21,7 +54,7 @@ export default function FeaturedWork() {
         <div className="grid gap-x-8 gap-y-16 md:grid-cols-2">
           {PROJECTS.map((p, i) => (
             <Reveal
-              key={p.slug}
+              key={`${p.slug}-${i}`}
               y={40}
               className={i % 2 === 1 ? "md:mt-20" : ""}
             >
@@ -29,13 +62,23 @@ export default function FeaturedWork() {
                 <div
                   className="relative aspect-[4/3] overflow-hidden rounded-2xl transition-transform duration-500 group-hover:scale-[1.01] shadow-sm bg-line"
                 >
-                  <Image
-                    src={p.image}
-                    alt={p.title}
-                    fill
-                    className="object-cover transition-transform duration-700 group-hover:scale-105"
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                  />
+                  {p.video ? (
+                    <video
+                      src={p.video}
+                      loop
+                      muted
+                      playsInline
+                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                  ) : (
+                    <Image
+                      src={p.image}
+                      alt={p.title}
+                      fill
+                      className="object-cover transition-transform duration-700 group-hover:scale-105"
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                    />
+                  )}
                   <div className="absolute inset-0 bg-ink/0 transition-colors duration-500 group-hover:bg-ink/10" />
                   <span className="absolute bottom-5 right-5 flex h-12 w-12 translate-y-3 items-center justify-center rounded-full bg-accent text-white opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100 shadow-md">
                     →

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import PageHeader from "@/components/PageHeader";
+import SectionHeader from "@/components/SectionHeader";
 import Reveal from "@/components/anim/Reveal";
 import { STATS } from "@/lib/data";
 import ColorDots from "@/components/ColorDots";
@@ -42,11 +42,27 @@ const VALUES = [
 export default function AboutPage() {
   return (
     <>
-      <PageHeader
-        eyebrow="The studio"
-        title="A design studio rooted in colour mastery and precision."
-        intro="Colorfit is a packaging and design company. Our brand reflects our conviction: vibrant, precise, and always purposeful. We treat every client's brand as if it were our own."
-      />
+      {/* Page Header with Studio Background */}
+      <header className="relative overflow-hidden border-b border-line/10 pb-16 isolate">
+        {/* Subtle Horizontal Gradient of Brand Colors */}
+        <div className="absolute inset-0 bg-gradient-to-r from-brand-violet/10 via-brand-magenta/5 via-brand-orange/5 via-brand-sky/5 to-brand-leaf/10 pointer-events-none -z-10" />
+        
+        {/* Soft Radial light blooms for studio feel */}
+        <div className="absolute top-0 left-1/4 w-[50%] h-full rounded-full bg-brand-magenta/10 blur-[100px] pointer-events-none -z-10" />
+        <div className="absolute top-0 right-1/4 w-[40%] h-full rounded-full bg-brand-sky/10 blur-[80px] pointer-events-none -z-10" />
+
+        <SectionHeader
+          eyebrow="The studio"
+          title="A design studio rooted in colour mastery and precision."
+          pt="pt-36 md:pt-44"
+          pb="pb-6"
+        />
+        <div className="container-x flex flex-col items-center text-center">
+          <p className="max-w-2xl text-lg text-muted leading-relaxed font-sans">
+            Colorfit is a packaging and design company. Our brand reflects our conviction: vibrant, precise, and always purposeful. We treat every client's brand as if it were our own.
+          </p>
+        </div>
+      </header>
 
       <section className="container-x pb-24">
         <Reveal className="grid gap-8 border-y border-line py-12 sm:grid-cols-2 md:grid-cols-4">
@@ -86,13 +102,13 @@ export default function AboutPage() {
       </section>
 
       <section className="bg-white py-24 border-t border-line">
+        <SectionHeader
+          eyebrow="Values"
+          title="Our Core Values"
+          pt="pt-0"
+          pb="pb-12"
+        />
         <div className="container-x">
-          <div className="flex items-center gap-3 mb-10">
-            <ColorDots size="sm" />
-            <p className="text-sm uppercase tracking-[0.2em] text-muted font-bold">
-              Our Core Values
-            </p>
-          </div>
           <div className="grid gap-px overflow-hidden rounded-2xl border border-line bg-line sm:grid-cols-2 lg:grid-cols-4">
             {VALUES.map((v) => (
               <div key={v.title} className={`bg-white p-8 transition-all duration-300 border border-transparent ${v.hover}`}>
@@ -104,33 +120,36 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Brand Team / Resources contact section as per Section 12 guidelines */}
+      {/* Brand Team / Resources contact section using SectionHeader */}
       <section className="bg-paper py-20 border-t border-line">
-        <div className="container-x">
-          <div className="max-w-2xl">
-            <h2 className="font-display text-2xl font-black text-ink mb-6">Brand Contacts &amp; Resources</h2>
-            <p className="text-muted mb-10">
-              For all brand-related questions, approvals, and asset requests, please reach out to the relevant Colorfit team.
-            </p>
-            <div className="grid gap-8 sm:grid-cols-3">
-              <div>
-                <h4 className="text-xs uppercase tracking-[0.2em] text-muted font-bold">Brand Manager</h4>
-                <a href="mailto:brandteam@colorfit.in" className="mt-2 block font-display text-base font-bold text-ink hover:text-accent transition-colors">
-                  brandteam@colorfit.in
-                </a>
-              </div>
-              <div>
-                <h4 className="text-xs uppercase tracking-[0.2em] text-muted font-bold">Design Queries</h4>
-                <a href="mailto:design@colorfit.in" className="mt-2 block font-display text-base font-bold text-ink hover:text-accent transition-colors">
-                  design@colorfit.in
-                </a>
-              </div>
-              <div>
-                <h4 className="text-xs uppercase tracking-[0.2em] text-muted font-bold">New Business</h4>
-                <a href="mailto:hello@colorfit.in" className="mt-2 block font-display text-base font-bold text-ink hover:text-accent transition-colors">
-                  hello@colorfit.in
-                </a>
-              </div>
+        <SectionHeader
+          eyebrow="Resources"
+          title="Brand Contacts & Resources"
+          pt="pt-0"
+          pb="pb-8"
+        />
+        <div className="container-x flex flex-col items-center text-center">
+          <p className="text-muted mb-12 max-w-2xl text-base leading-relaxed">
+            For all brand-related questions, approvals, and asset requests, please reach out to the relevant Colorfit team.
+          </p>
+          <div className="grid gap-8 sm:grid-cols-3 text-left w-full max-w-3xl">
+            <div>
+              <h4 className="text-xs uppercase tracking-[0.2em] text-muted font-bold">Brand Manager</h4>
+              <a href="mailto:brandteam@colorfit.in" className="mt-2 block font-display text-base font-bold text-ink hover:text-accent transition-colors">
+                brandteam@colorfit.in
+              </a>
+            </div>
+            <div>
+              <h4 className="text-xs uppercase tracking-[0.2em] text-muted font-bold">Design Queries</h4>
+              <a href="mailto:design@colorfit.in" className="mt-2 block font-display text-base font-bold text-ink hover:text-accent transition-colors">
+                design@colorfit.in
+              </a>
+            </div>
+            <div>
+              <h4 className="text-xs uppercase tracking-[0.2em] text-muted font-bold">New Business</h4>
+              <a href="mailto:hello@colorfit.in" className="mt-2 block font-display text-base font-bold text-ink hover:text-accent transition-colors">
+                hello@colorfit.in
+              </a>
             </div>
           </div>
         </div>
