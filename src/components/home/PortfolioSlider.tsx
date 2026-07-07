@@ -123,19 +123,6 @@ export default function PortfolioSlider() {
                   {slide.client.replace(/[^a-zA-Z]/g, "").substring(0, 4).toUpperCase()}
                 </span>
               </div>
-
-              {/* Full-bleed image or typographic visual */}
-              {/* {slide.image ? (
-                <Image
-                  src={slide.image}
-                  alt={slide.client}
-                  fill
-                  className="object-cover"
-                  sizes="100vw"
-                  priority={i === 0}
-                />
-              ) : ( */}
-              {/* changes for the mobile view */}
               {slide.image ? (
                 <>
                   {/* Desktop Image */}

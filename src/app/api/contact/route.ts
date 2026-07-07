@@ -4,11 +4,6 @@ import nodemailer from 'nodemailer'
 export async function POST(request: Request) {
     try {
         const body = await request.json();
-        // return NextResponse.json({
-        //     success: true,
-        //     message: "Request received",
-        //     body,
-        // });
         const transporter = nodemailer.createTransport({
             host: process.env.SMTP_HOST,
             port: Number(process.env.SMTP_PORT),
@@ -22,15 +17,6 @@ export async function POST(request: Request) {
             from: process.env.SMTP_USER,
             to: process.env.EMAIL_TO,
             subject: "New Contact Form Submission",
-
-            // text: `
-            //     Name:${body.name}
-            //     Email:${body.email}
-            //     Company:${body.company}
-
-            //     Message:
-            //     ${body.message}
-            // `,
             html: `
                 <div style="font-family:Arial,sans-serif;padding:24px">
                     <h2>📩 New Contact Form Submission</h2>

@@ -16,8 +16,6 @@ export default function ContactForm() {
     );
 
 
-
-  // contact form handler email service
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true)
