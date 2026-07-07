@@ -1,7 +1,6 @@
 "use client";
 
 import { useRef } from "react";
-import Link from "next/link";
 import Image from "next/image";
 import { useGSAP } from "@gsap/react";
 import { gsap } from "@/lib/gsap";
@@ -95,7 +94,10 @@ export default function PortfolioSlider() {
       style={{ height: `${SLIDES.length * 100}vh` }}
     >
       <div className="sticky top-0 h-screen overflow-hidden">
-        {SLIDES.map((slide, i) => (
+        {SLIDES.map((slide, i) => {
+          // Extract before the image conditional so TypeScript doesn't narrow slide to `never`
+          const clientInitial = slide.client[0];
+          return (
           <div
             key={slide.num}
             ref={(el) => {
@@ -162,7 +164,7 @@ export default function PortfolioSlider() {
                       className="font-display font-black uppercase leading-none text-white"
                       style={{ fontSize: "clamp(5rem, 10vw, 10rem)", letterSpacing: "-0.04em" }}
                     >
-                      {slide.client[0]}
+                      {clientInitial}
                     </span>
                   </div>
                 </div>
@@ -212,7 +214,8 @@ export default function PortfolioSlider() {
               </Link>
             </div> */}
           </div>
-        ))}
+          );
+        })}
       </div>
     </section>
   );

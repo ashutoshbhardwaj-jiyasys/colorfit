@@ -57,7 +57,7 @@ export async function POST(request: Request) {
             message: "Transporter created successfully",
         })
 
-    } catch (error) {
+    } catch {
         return NextResponse.json({
             success: false,
             message: "Something went wrong",
