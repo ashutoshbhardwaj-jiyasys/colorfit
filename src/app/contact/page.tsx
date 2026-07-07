@@ -15,7 +15,7 @@ export default function ContactPage() {
       <header className="relative overflow-hidden border-b border-line/10 pb-16 mb-16 isolate">
         {/* Subtle Horizontal Gradient of Brand Colors */}
         <div className="absolute inset-0 bg-gradient-to-r from-brand-violet/10 via-brand-magenta/5 via-brand-orange/5 via-brand-sky/5 to-brand-leaf/10 pointer-events-none -z-10" />
-        
+
         {/* Soft Radial light blooms for studio feel */}
         <div className="absolute top-0 left-1/4 w-[50%] h-full rounded-full bg-brand-magenta/10 blur-[100px] pointer-events-none -z-10" />
         <div className="absolute top-0 right-1/4 w-[40%] h-full rounded-full bg-brand-sky/10 blur-[80px] pointer-events-none -z-10" />

@@ -9,48 +9,53 @@ import { gsap } from "@/lib/gsap";
 const SLIDES = [
   {
     num: "01",
-    client: "Let's Supp",
+    client: "Minimalist",
     category: "Brand Identity · Packaging",
     year: "2025",
     tagline: "Wellness ritual, redefined.",
     bg: "#F7C82A",
-    image: "/images/mockup-hero1.jpeg",
+    image: "/images/mockup-hero2.jpg",
+    mobileImage: "/images/mockup-hero2-mobile.jpg",
   },
   {
     num: "02",
-    client: "Aera Skincare",
+    client: "GUD MISHRI",
     category: "Brand · Packaging",
     year: "2025",
     tagline: "Precision meets purity.",
     bg: "#7B3FA0",
-    image: null,
+    image: "/images/mockup-hero3.jpg",
+    mobileImage: "/images/mockup-hero3-mobile.jpg",
   },
   {
     num: "03",
-    client: "North Roastery",
+    client: "Womenia",
     category: "Packaging · Graphic",
     year: "2025",
     tagline: "Craft coffee, bold identity.",
     bg: "#F26522",
-    image: null,
+    image: "/images/mockup-hero4.jpg",
+    mobileImage: "/images/mockup-hero4-mobile.jpg",
   },
   {
     num: "04",
-    client: "Verde Botanicals",
+    client: "Breath of Nature",
     category: "Brand Identity",
     year: "2024",
     tagline: "Nature distilled to essence.",
     bg: "#5DBB46",
-    image: null,
+    image: "/images/mockup-hero5.jpg",
+    mobileImage: "/images/mockup-hero5-mobile.jpg",
   },
   {
     num: "05",
-    client: "Lumen Beverages",
+    client: "Zovvy",
     category: "Packaging Design",
     year: "2024",
     tagline: "Light, fresh, energized.",
     bg: "#3B9EDC",
-    image: null,
+    image: "/images/mockup-hero6.jpg",
+    mobileImage: "/images/mockup-hero6-mobile.jpg",
   },
 ] as const;
 
@@ -118,17 +123,30 @@ export default function PortfolioSlider() {
                   {slide.client.replace(/[^a-zA-Z]/g, "").substring(0, 4).toUpperCase()}
                 </span>
               </div>
-
-              {/* Full-bleed image or typographic visual */}
               {slide.image ? (
-                <Image
-                  src={slide.image}
-                  alt={slide.client}
-                  fill
-                  className="object-cover"
-                  sizes="100vw"
-                  priority={i === 0}
-                />
+                <>
+                  {/* Desktop Image */}
+                  <Image
+                    src={slide.image}
+                    alt={slide.client}
+                    fill
+                    className="hidden md:block object-cover"
+                    sizes="100vw"
+                    priority={i === 0}
+                    quality={90}
+                  />
+
+                  {/* Mobile Image */}
+                  <Image
+                    src={slide.mobileImage}
+                    alt={slide.client}
+                    fill
+                    className="block md:hidden object-cover"
+                    sizes="100vw"
+                    priority={i === 0}
+                    quality={90}
+                  />
+                </>
               ) : (
                 <div className="absolute inset-0 flex items-center justify-center z-10">
                   <div
@@ -168,7 +186,7 @@ export default function PortfolioSlider() {
             </div>
 
             {/* ── Info bar ── */}
-            <div className="bg-canvas px-8 md:px-16 py-7 md:py-9 flex items-end justify-between gap-6 shrink-0">
+            {/* <div className="bg-canvas px-8 md:px-16 py-7 md:py-9 flex items-end justify-between gap-6 shrink-0">
               <div className="min-w-0">
                 <p className="text-[10px] font-black uppercase tracking-[0.22em] text-muted mb-2">
                   {slide.category}&nbsp;&nbsp;·&nbsp;&nbsp;{slide.year}
@@ -192,7 +210,7 @@ export default function PortfolioSlider() {
               >
                 ↗
               </Link>
-            </div>
+            </div> */}
           </div>
         ))}
       </div>

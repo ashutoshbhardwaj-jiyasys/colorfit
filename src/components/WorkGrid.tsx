@@ -14,7 +14,8 @@ export default function WorkGrid() {
           y={40}
           className="w-full"
         >
-          <Link href="/work" className="group block cursor-pointer">
+          {/* <Link href="/work" className="group block cursor-pointer"> */}
+          <div className="group block">
             <div className="relative aspect-[3/4] overflow-hidden rounded-2xl shadow-sm bg-line">
               {/* Product Mockup Image or Video */}
               {p.video ? (
@@ -44,12 +45,13 @@ export default function WorkGrid() {
                 <p className="text-white/60 text-xs uppercase tracking-[0.2em] mt-2 mb-6 text-center">
                   {p.category}
                 </p>
-                <span className="text-accent hover:text-white border-b border-accent hover:border-white text-xs font-bold uppercase tracking-widest transition-colors duration-300">
+                {/* <span className="text-accent hover:text-white border-b border-accent hover:border-white text-xs font-bold uppercase tracking-widest transition-colors duration-300">
                   View Project
-                </span>
+                </span> */}
               </div>
             </div>
-          </Link>
+          </div>
+          {/* </Link> */}
         </Reveal>
       ))}
     </div>

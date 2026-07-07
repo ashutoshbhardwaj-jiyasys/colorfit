@@ -1,10 +1,12 @@
 "use client";
 
+import { log } from "node:console";
 import { useState } from "react";
 
 const SERVICES = ["Brand Identity", "Packaging", "Graphic Design", "Art Direction"];
 
 export default function ContactForm() {
+  const [loading, setLoading] = useState(false)
   const [sent, setSent] = useState(false);
   const [selected, setSelected] = useState<string[]>([]);
 
@@ -13,11 +15,35 @@ export default function ContactForm() {
       cur.includes(s) ? cur.filter((x) => x !== s) : [...cur, s]
     );
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // TODO: wire to your email service / API route.
-    setSent(true);
+    setLoading(true)
+    const formData = new FormData(e.currentTarget);
+    const payload = {
+      name: formData.get("name"),
+      email: formData.get("email"),
+      company: formData.get("company"),
+      message: formData.get("message"),
+      services: selected,
+    }
+    const response = await fetch('/api/contact', {
+      method: 'POST',
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(payload),
+    });
+    const data = await response.json();
+    console.log(data);
+    setLoading(false)
+    if (data.success) {
+      setSent(true)
+    }
   };
+
+
+
 
   if (sent) {
     return (
@@ -46,11 +72,10 @@ export default function ContactForm() {
               key={s}
               type="button"
               onClick={() => toggle(s)}
-              className={`rounded-full border px-4 py-2 text-sm transition-colors ${
-                selected.includes(s)
-                  ? "border-ink bg-ink text-paper"
-                  : "border-line text-muted hover:border-ink hover:text-ink"
-              }`}
+              className={`rounded-full border px-4 py-2 text-sm transition-colors ${selected.includes(s)
+                ? "border-ink bg-ink text-paper"
+                : "border-line text-muted hover:border-ink hover:text-ink"
+                }`}
             >
               {s}
             </button>
@@ -74,9 +99,14 @@ export default function ContactForm() {
 
       <button
         type="submit"
+        disabled={loading}
         className="inline-flex items-center gap-2 rounded-full bg-ink px-8 py-4 font-medium text-paper transition-colors hover:bg-accent"
       >
-        Send message <span aria-hidden>→</span>
+        {loading ? "Sending..." : (
+          <>
+            Send message <span aria-hidden>→</span>
+          </>
+        )}
       </button>
     </form>
   );
