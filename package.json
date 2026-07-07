@@ -13,11 +13,13 @@
     "gsap": "^3.13.0",
     "lenis": "^1.1.18",
     "next": "^15.1.6",
+    "nodemailer": "^9.0.3",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },
   "devDependencies": {
     "@types/node": "^20",
+    "@types/nodemailer": "^8.0.1",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "autoprefixer": "^10.4.20",

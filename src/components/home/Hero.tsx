@@ -112,7 +112,7 @@ export default function Hero() {
       <div className="container-x w-full relative z-10 flex flex-col items-center">
         {/* Top 2-Part Grid Layout */}
         <div className="w-full grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-center mb-14">
-          
+
           {/* Left Column: Typography Block */}
           <div className="md:col-span-7 lg:col-span-7 flex flex-col items-start text-left justify-center">
             <div className="hero-eyebrow mb-8 flex items-center gap-3">
@@ -153,7 +153,7 @@ export default function Hero() {
           <div className="hero-placeholder md:col-span-5 lg:col-span-5 flex justify-center md:justify-end lg:justify-end w-full">
             <div className="relative w-full max-w-[500px] aspect-square overflow-hidden bg-transparent">
               <Image
-                src="/images/mockup-hero.png"
+                src="/images/mockup-hero.jpg"
                 alt="Colorfit Brand Packaging Mockup"
                 width={600}
                 height={600}
@@ -162,7 +162,7 @@ export default function Hero() {
               />
             </div>
           </div>
-          
+
         </div>
 
         {/* Bottom Centered CTA Button */}
