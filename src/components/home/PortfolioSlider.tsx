@@ -1,7 +1,6 @@
 "use client";
 
 import { useRef } from "react";
-import Link from "next/link";
 import Image from "next/image";
 import { useGSAP } from "@gsap/react";
 import { gsap } from "@/lib/gsap";
@@ -57,7 +56,7 @@ const SLIDES = [
     image: "/images/mockup-hero6.jpg",
     mobileImage: "/images/mockup-hero6-mobile.jpg",
   },
-] as const;
+];
 
 export default function PortfolioSlider() {
   const sectionRef = useRef<HTMLDivElement>(null);
