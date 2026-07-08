@@ -33,6 +33,7 @@
     transform: translateY(28px);
     will-change: transform, opacity;
   }
+
   .reveal.is-in {
     opacity: 1;
     transform: none;
@@ -44,6 +45,7 @@
   display: block;
   overflow: hidden;
 }
+
 .line-inner {
   display: block;
   transform: translateY(110%);
@@ -54,6 +56,7 @@
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
+
 .no-scrollbar {
   -ms-overflow-style: none;
   scrollbar-width: none;
@@ -61,6 +64,7 @@
 
 /* Respect reduced motion */
 @media (prefers-reduced-motion: reduce) {
+
   .reveal,
   .line-inner {
     opacity: 1 !important;
@@ -70,14 +74,17 @@
 
 /* Custom horizontal bounce animation for mobile swipe indicator */
 @keyframes bounce-x {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateX(0);
   }
+
   50% {
     transform: translateX(4px);
   }
 }
+
 .animate-bounce-horizontal {
   animation: bounce-x 1s infinite ease-in-out;
 }
-

@@ -233,6 +233,14 @@ export const PROJECTS: Project[] = [
     image: "/images/magic-foods-pasta.jpg",
   },
   {
+    slug: "pure-zayka-suji",
+    title: "Pure Zayka Suji",
+    category: "Food Packaging",
+    year: "2025",
+    tile: "bg-brand-sky text-white",
+    image: "/images/pure-zayka-suji.jpg",
+  },
+  {
     slug: "silvercrop",
     title: "SilverCrop",
     category: "Agriculture Packaging",
@@ -257,14 +265,7 @@ export const PROJECTS: Project[] = [
     tile: "bg-brand-orange text-white",
     image: "/images/jainam-atta.jpg",
   },
-  {
-    slug: "pure-zayka-suji",
-    title: "Pure Zayka Suji",
-    category: "Food Packaging",
-    year: "2025",
-    tile: "bg-brand-sky text-white",
-    image: "/images/pure-zayka-suji.jpg",
-  },
+
   {
     slug: "pure-zayka-maida",
     title: "Pure Zayka Maida",
@@ -282,12 +283,12 @@ export const PROJECTS: Project[] = [
     image: "/images/sampoorn-besan.jpg",
   },
   {
-    slug: "sampoorn-suji",
-    title: "Sampoorn Suji",
-    category: "Packaging Design",
+    slug: "rose-incense",
+    title: "Rose Incense",
+    category: "Incense Packaging",
     year: "2025",
-    tile: "bg-brand-orange text-white",
-    image: "/images/sampoorn-suji.jpg",
+    tile: "bg-brand-leaf text-white",
+    image: "/images/rose-incense.jpg",
   },
   {
     slug: "sampoorn-maida",
@@ -298,12 +299,12 @@ export const PROJECTS: Project[] = [
     image: "/images/sampoorn-maida.jpg",
   },
   {
-    slug: "rose-incense",
-    title: "Rose Incense",
-    category: "Incense Packaging",
+    slug: "miss-edge-dry-comfort",
+    title: "Miss Edge Dry Comfort",
+    category: "Personal Care Packaging",
     year: "2025",
-    tile: "bg-brand-leaf text-white",
-    image: "/images/rose-incense.jpg",
+    tile: "bg-brand-orange text-white",
+    image: "/images/miss-edge-dry-comfort.jpg",
   },
   {
     slug: "intimate-incense",
@@ -330,6 +331,14 @@ export const PROJECTS: Project[] = [
     image: "/images/mogra-incense.jpg",
   },
   {
+    slug: "sampoorn-suji",
+    title: "Sampoorn Suji",
+    category: "Packaging Design",
+    year: "2025",
+    tile: "bg-brand-orange text-white",
+    image: "/images/sampoorn-suji.jpg",
+  },
+  {
     slug: "fresh-sandal",
     title: "Fresh Sandal",
     category: "Incense Packaging",
@@ -353,6 +362,15 @@ export const PROJECTS: Project[] = [
     tile: "bg-brand-sky text-white",
     image: "/images/devki-nandan.jpg",
   },
+  {
+    slug: "zovy-nimbu-achari-peanuts",
+    title: "Zovy Nimbu Achari Peanuts",
+    category: "Snack Packaging",
+    year: "2025",
+    tile: "bg-brand-orange text-white",
+    image: "/images/zovy-nimbu-achari-peanuts.jpeg",
+  },
+
   {
     slug: "vaishnavi-daisy",
     title: "Vaishnavi & Daisy",
@@ -384,6 +402,14 @@ export const PROJECTS: Project[] = [
     year: "2025",
     tile: "bg-brand-leaf text-white",
     image: "/images/upasna-box.jpg",
+  },
+  {
+    slug: "true-nirvana-ginger-tulsi",
+    title: "True Nirvana Ginger Tulsi",
+    category: "Tea Packaging",
+    year: "2025",
+    tile: "bg-brand-leaf text-white",
+    image: "/images/true-nirvana-ginger-tulsi.jpeg",
   },
   {
     slug: "arham-box",
@@ -426,6 +452,14 @@ export const PROJECTS: Project[] = [
     image: "/images/ganoderma-powder.jpg",
   },
   {
+    slug: "breath-of-nature-lavender-tea",
+    title: "Breath of Nature Lavender Tea",
+    category: "Tea Packaging",
+    year: "2025",
+    tile: "bg-brand-violet text-white",
+    image: "/images/breath-of-nature-lavender-tea.png",
+  },
+  {
     slug: "gajanan-snacks",
     title: "Gajanan Snacks",
     category: "Snack Packaging",
@@ -441,38 +475,7 @@ export const PROJECTS: Project[] = [
     tile: "bg-brand-sky text-white",
     image: "/images/miss-edge-naturally-soft.jpg",
   },
-  {
-    slug: "miss-edge-dry-comfort",
-    title: "Miss Edge Dry Comfort",
-    category: "Personal Care Packaging",
-    year: "2025",
-    tile: "bg-brand-orange text-white",
-    image: "/images/miss-edge-dry-comfort.jpg",
-  },
-  {
-    slug: "true-nirvana-ginger-tulsi",
-    title: "True Nirvana Ginger Tulsi",
-    category: "Tea Packaging",
-    year: "2025",
-    tile: "bg-brand-leaf text-white",
-    image: "/images/true-nirvana-ginger-tulsi.jpeg",
-  },
-  {
-    slug: "zovy-nimbu-achari-peanuts",
-    title: "Zovy Nimbu Achari Peanuts",
-    category: "Snack Packaging",
-    year: "2025",
-    tile: "bg-brand-orange text-white",
-    image: "/images/zovy-nimbu-achari-peanuts.jpeg",
-  },
-  {
-    slug: "breath-of-nature-lavender-tea",
-    title: "Breath of Nature Lavender Tea",
-    category: "Tea Packaging",
-    year: "2025",
-    tile: "bg-brand-violet text-white",
-    image: "/images/breath-of-nature-lavender-tea.png",
-  },
+
 ];
 
 export const STATS = [

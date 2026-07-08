@@ -69,7 +69,7 @@ export default function ServiceRow({
           </div>
 
           {/* Hover View: extra details sliding in from the right */}
-          <div className="absolute inset-0 w-full h-full flex flex-col justify-center transition-all duration-500 ease-out transform translate-x-12 opacity-0 pointer-events-none group-hover:translate-x-0 group-hover:opacity-100 group-hover:pointer-events-auto">
+          <div className="inset-0 w-full h-full flex flex-col justify-center transition-all duration-500 ease-out transform translate-x-12 opacity-0 pointer-events-none group-hover:translate-x-0 group-hover:opacity-100 group-hover:pointer-events-auto">
             {extraInfo && (
               <p className="max-w-xl text-lg text-white/90 font-sans leading-relaxed font-medium">
                 {extraInfo}
@@ -88,6 +88,6 @@ export default function ServiceRow({
           </div>
         </div>
       </article>
-    </Reveal>
+    </Reveal >
   );
 }

@@ -15,7 +15,7 @@ export default function WorkGrid() {
         >
           {/* <Link href="/work" className="group block cursor-pointer"> */}
           <div className="group block">
-            <div className="relative aspect-[3/4] overflow-hidden rounded-2xl shadow-sm bg-line">
+            <div className="relative aspect-[1/1] overflow-hidden rounded-2xl shadow-sm bg-line">
               {/* Product Mockup Image or Video */}
               {p.video ? (
                 <video
