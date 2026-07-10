@@ -37,7 +37,7 @@ export const SLIDES = [
     tagline: "Nature distilled to essence.",
     bg: "#5DBB46",
     image: "/images/mockup-hero5.png",
-    mobileImage: "/images/mockup-hero5-mobile.jpg",
+    mobileImage: "/images/mockup-hero5-mobile.png",
   },
   {
     num: "05",
