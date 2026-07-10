@@ -8,6 +8,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      screens: {
+        "3xl": "1920px",
+      },
       colors: {
         // Official Colorfit Brand System Colors
         canvas: "#FFFFFF", // Pure White
@@ -74,7 +77,7 @@ const config: Config = {
       },
 
       maxWidth: {
-        container: "170rem",
+        container: "100%",
       },
 
       transitionTimingFunction: {

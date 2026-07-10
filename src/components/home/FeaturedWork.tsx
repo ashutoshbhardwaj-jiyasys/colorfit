@@ -13,31 +13,31 @@ export default function FeaturedWork() {
   useEffect(() => {
     const section = sectionRef.current;
     if (!section) return;
+    /* below section is when some video need to be played on scroll intersaction  */
+    // const observer = new IntersectionObserver(
+    //   (entries) => {
+    //     entries.forEach((entry) => {
+    //       const videos = section.querySelectorAll("video");
+    //       videos.forEach((video) => {
+    //         if (entry.isIntersecting) {
+    //           video.play().catch((err) => {
+    //             // Ignore autoplay/play interruption warnings
+    //             console.debug("Video play interrupted:", err);
+    //           });
+    //         } else {
+    //           video.pause();
+    //         }
+    //       });
+    //     });
+    //   },
+    //   { threshold: 0.1 }
+    // );
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          const videos = section.querySelectorAll("video");
-          videos.forEach((video) => {
-            if (entry.isIntersecting) {
-              video.play().catch((err) => {
-                // Ignore autoplay/play interruption warnings
-                console.debug("Video play interrupted:", err);
-              });
-            } else {
-              video.pause();
-            }
-          });
-        });
-      },
-      { threshold: 0.1 }
-    );
+    // observer.observe(section);
 
-    observer.observe(section);
-
-    return () => {
-      observer.disconnect();
-    };
+    // return () => {
+    //   observer.disconnect();
+    // };
   }, []);
 
   return (
@@ -51,7 +51,7 @@ export default function FeaturedWork() {
           pb="pb-16"
         />
 
-        <div className="grid gap-x-8 gap-y-16 md:grid-cols-2">
+        <div className="grid gap-x-8 gap-y-16 md:grid-cols-2 xl:grid-cols-3">
           {PROJECTS.map((p, i) => (
             <Reveal
               key={`${p.slug}-${i}`}
@@ -60,7 +60,7 @@ export default function FeaturedWork() {
             >
               <Link href="/work" className="group block">
                 <div
-                  className="relative aspect-[4/3] overflow-hidden rounded-2xl transition-transform duration-500 group-hover:scale-[1.01] shadow-sm bg-line"
+                  className="relative aspect-[1] overflow-hidden rounded-2xl transition-transform duration-500 group-hover:scale-[1.01] shadow-sm bg-line"
                 >
                   {p.video ? (
                     <video

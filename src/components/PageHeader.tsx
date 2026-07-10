@@ -18,10 +18,10 @@ export default function PageHeader({
       <AnimatedHeading
         as="h1"
         text={title}
-        className="max-w-4xl font-display text-display-lg font-bold"
+        className="max-w-4xl 2xl:max-w-6xl font-display text-display-lg font-bold"
       />
       {intro ? (
-        <p className="mt-8 max-w-2xl text-lg text-muted">{intro}</p>
+        <p className="mt-8 max-w-2xl 2xl:max-w-4xl text-lg text-muted">{intro}</p>
       ) : null}
     </header>
   );

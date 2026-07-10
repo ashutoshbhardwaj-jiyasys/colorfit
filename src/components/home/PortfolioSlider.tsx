@@ -1,64 +1,38 @@
 "use client";
 
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { useGSAP } from "@gsap/react";
 import { gsap } from "@/lib/gsap";
+import { SLIDES } from "./portfolioSlides";
+import PortfolioCarousel from "./PortfolioCarousel";
 
-const SLIDES = [
-  {
-    num: "01",
-    client: "Minimalist",
-    category: "Brand Identity · Packaging",
-    year: "2025",
-    tagline: "Wellness ritual, redefined.",
-    bg: "#F7C82A",
-    image: "/images/mockup-hero2.jpg",
-    mobileImage: "/images/mockup-hero2-mobile.jpg",
-  },
-  {
-    num: "02",
-    client: "GUD MISHRI",
-    category: "Brand · Packaging",
-    year: "2025",
-    tagline: "Precision meets purity.",
-    bg: "#7B3FA0",
-    image: "/images/mockup-hero3.jpg",
-    mobileImage: "/images/mockup-hero3-mobile.jpg",
-  },
-  {
-    num: "03",
-    client: "Womenia",
-    category: "Packaging · Graphic",
-    year: "2025",
-    tagline: "Craft coffee, bold identity.",
-    bg: "#F26522",
-    image: "/images/mockup-hero4.jpg",
-    mobileImage: "/images/mockup-hero4-mobile.jpg",
-  },
-  {
-    num: "04",
-    client: "Breath of Nature",
-    category: "Brand Identity",
-    year: "2024",
-    tagline: "Nature distilled to essence.",
-    bg: "#5DBB46",
-    image: "/images/mockup-hero5.jpg",
-    mobileImage: "/images/mockup-hero5-mobile.jpg",
-  },
-  {
-    num: "05",
-    client: "Zovvy",
-    category: "Packaging Design",
-    year: "2024",
-    tagline: "Light, fresh, energized.",
-    bg: "#3B9EDC",
-    image: "/images/mockup-hero6.jpg",
-    mobileImage: "/images/mockup-hero6-mobile.jpg",
-  },
-] as const;
+// SSR-safe media query hook. Defaults to `false` on the server and the first
+// client render (mobile-first), then updates after mount — so the desktop
+// slider only ever mounts when it's actually visible and measurable.
+function useMediaQuery(query: string) {
+  const [matches, setMatches] = useState(false);
+
+  useEffect(() => {
+    const mql = window.matchMedia(query);
+    const onChange = () => setMatches(mql.matches);
+    onChange();
+    mql.addEventListener("change", onChange);
+    return () => mql.removeEventListener("change", onChange);
+  }, [query]);
+
+  return matches;
+}
 
 export default function PortfolioSlider() {
+  const isDesktop = useMediaQuery("(min-width: 1024px)");
+
+  // Desktop (≥lg): scroll-driven stacked slider.
+  // Mobile + Tablet (<lg): swipeable carousel.
+  return isDesktop ? <DesktopSlider /> : <PortfolioCarousel />;
+}
+
+function DesktopSlider() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
 
@@ -76,10 +50,11 @@ export default function PortfolioSlider() {
           start: "top top",
           end: "bottom bottom",
           scrub: 1,
+          invalidateOnRefresh: true,
         },
       });
 
-      // Slide each subsequent card up over an equal share of the total scroll
+      // Slide each subsequent card up over an equal share of the scroll
       cards.slice(1).forEach((card, i) => {
         tl.to(card, { yPercent: 0, ease: "none", duration: 1 }, i);
       });
@@ -126,36 +101,15 @@ export default function PortfolioSlider() {
                   </span>
                 </div>
                 {slide.image ? (
-                  <>
-
-
-
-
-
-                    {/* Desktop Image */}
-                    <Image
-                      src={slide.image}
-                      alt={slide.client}
-                      fill
-                      className="hidden md:block object-cover"
-                      sizes="100vw"
-                      priority={i === 0}
-                      quality={90}
-                    />
-
-                    {/* Mobile Image */}
-                    <Image
-                      src={slide.mobileImage}
-                      alt={slide.client}
-                      fill
-                      className="block md:hidden object-cover"
-                      sizes="100vw"
-                      priority={i === 0}
-                      quality={90}
-                    />
-
-
-                  </>
+                  <Image
+                    src={slide.image}
+                    alt={slide.client}
+                    fill
+                    className="object-cover object-center"
+                    sizes="100vw"
+                    priority={i === 0}
+                    quality={90}
+                  />
                 ) : (
                   <div className="absolute inset-0 flex items-center justify-center z-10">
                     <div
@@ -193,33 +147,6 @@ export default function PortfolioSlider() {
                   {slide.num}&nbsp;/&nbsp;{String(SLIDES.length).padStart(2, "0")}
                 </p>
               </div>
-
-              {/* ── Info bar ── */}
-              {/* <div className="bg-canvas px-8 md:px-16 py-7 md:py-9 flex items-end justify-between gap-6 shrink-0">
-              <div className="min-w-0">
-                <p className="text-[10px] font-black uppercase tracking-[0.22em] text-muted mb-2">
-                  {slide.category}&nbsp;&nbsp;·&nbsp;&nbsp;{slide.year}
-                </p>
-                <h2
-                  className="font-display font-black uppercase text-ink leading-[0.88] tracking-tighter"
-                  style={{ fontSize: "clamp(2.4rem, 5.5vw, 5.5rem)" }}
-                >
-                  {slide.client}
-                </h2>
-                <p className="mt-2 text-sm text-muted font-sans leading-relaxed">
-                  {slide.tagline}
-                </p>
-              </div>
-
-              <Link
-                href="/work"
-                className="shrink-0 flex items-center justify-center rounded-full bg-brand-magenta text-white hover:scale-110 hover:bg-ink transition-all duration-300 shadow-md"
-                style={{ width: "clamp(3.25rem, 4.5vw, 4rem)", height: "clamp(3.25rem, 4.5vw, 4rem)", fontSize: "1.1rem" }}
-                aria-label={`View ${slide.client} project`}
-              >
-                ↗
-              </Link>
-            </div> */}
             </div>
           );
         })}

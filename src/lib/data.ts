@@ -105,6 +105,14 @@ export const PROJECTS: Project[] = [
     image: "/images/baby-kaart.jpg",
   },
   {
+    slug: "zovy-nimbu-achari-peanuts",
+    title: "Zovy Nimbu Achari Peanuts",
+    category: "Snack Packaging",
+    year: "2025",
+    tile: "bg-brand-orange text-white",
+    image: "/images/zovy-nimbu-achari-peanuts.jpeg",
+  },
+  {
     slug: "today-taste-tea",
     title: "Today Taste Tea",
     category: "Packaging Design",
@@ -119,6 +127,14 @@ export const PROJECTS: Project[] = [
     year: "2025",
     tile: "bg-brand-orange text-white",
     image: "/images/today-taste-chai-garam.jpg",
+  },
+  {
+      slug: "upasna-box",
+      title: "Upasna",
+      category: "Box Packaging",
+      year: "2025",
+      tile: "bg-brand-leaf text-white",
+      image: "/images/upasna-box.jpg",
   },
   {
     slug: "true-nirvana",
@@ -151,6 +167,14 @@ export const PROJECTS: Project[] = [
     year: "2025",
     tile: "bg-brand-sky text-white",
     image: "/images/maysukk.jpg",
+  },
+  {
+    slug: "true-nirvana-ginger-tulsi",
+    title: "True Nirvana Ginger Tulsi",
+    category: "Tea Packaging",
+    year: "2025",
+    tile: "bg-brand-leaf text-white",
+    image: "/images/true-nirvana-ginger-tulsi.jpeg",
   },
   {
     slug: "obuddys",
@@ -362,14 +386,7 @@ export const PROJECTS: Project[] = [
     tile: "bg-brand-sky text-white",
     image: "/images/devki-nandan.jpg",
   },
-  {
-    slug: "zovy-nimbu-achari-peanuts",
-    title: "Zovy Nimbu Achari Peanuts",
-    category: "Snack Packaging",
-    year: "2025",
-    tile: "bg-brand-orange text-white",
-    image: "/images/zovy-nimbu-achari-peanuts.jpeg",
-  },
+  
 
   {
     slug: "vaishnavi-daisy",
@@ -395,22 +412,8 @@ export const PROJECTS: Project[] = [
     tile: "bg-brand-orange text-white",
     image: "/images/temple-flora.jpg",
   },
-  {
-    slug: "upasna-box",
-    title: "Upasna",
-    category: "Box Packaging",
-    year: "2025",
-    tile: "bg-brand-leaf text-white",
-    image: "/images/upasna-box.jpg",
-  },
-  {
-    slug: "true-nirvana-ginger-tulsi",
-    title: "True Nirvana Ginger Tulsi",
-    category: "Tea Packaging",
-    year: "2025",
-    tile: "bg-brand-leaf text-white",
-    image: "/images/true-nirvana-ginger-tulsi.jpeg",
-  },
+  
+  
   {
     slug: "arham-box",
     title: "Arham",

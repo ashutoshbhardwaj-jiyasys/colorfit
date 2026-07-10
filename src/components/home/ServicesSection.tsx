@@ -24,7 +24,7 @@ export default function ServicesSection() {
           pb="pb-16"
         />
 
-        <Reveal stagger className="grid gap-px overflow-hidden rounded-2xl border border-line bg-line md:grid-cols-2">
+        <Reveal stagger className="grid gap-px overflow-hidden rounded-2xl border border-line bg-line md:grid-cols-2 2xl:grid-cols-4">
           {SERVICES.map((s) => {
             const style = hoverClasses[s.num] || { bg: "hover:bg-canvas", text: "group-hover:text-accent", num: "text-accent" };
             return (

@@ -16,7 +16,7 @@ export default function Footer() {
             <Link href="/" className="hover:opacity-90 transition-opacity">
               <BrandLogo light={true} />
             </Link>
-            <p className="mt-3 max-w-xs text-sm text-paper/60">
+            <p className="mt-3 max-w-xs 2xl:max-w-sm text-sm text-paper/60">
               Vibrant, precise, and purposeful packaging and design systems.
             </p>
             <ColorDots className="mt-5" size="sm" />

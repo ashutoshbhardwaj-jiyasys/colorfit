@@ -26,7 +26,7 @@ export default function WorkPage() {
           pb="pb-6"
         />
         <div className="container-x flex flex-col items-center text-center">
-          <p className="max-w-2xl text-lg text-muted leading-relaxed font-sans">
+          <p className="max-w-2xl 2xl:max-w-4xl text-lg text-muted leading-relaxed font-sans">
             A curated showcase of packaging systems, brand identities, and graphic layouts crafted with colour mastery and precision.
           </p>
         </div>

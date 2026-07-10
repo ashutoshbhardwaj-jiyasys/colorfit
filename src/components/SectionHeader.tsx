@@ -27,7 +27,7 @@ export default function SectionHeader({
           {eyebrow}
         </p>
       )}
-      <h2 className={`font-display text-display-md font-black uppercase text-center max-w-4xl ${lightText ? "text-white" : "text-ink"}`}>
+      <h2 className={`font-display text-display-md font-black uppercase text-center max-w-4xl 2xl:max-w-6xl ${lightText ? "text-white" : "text-ink"}`}>
         {title}
       </h2>
       {link && (
