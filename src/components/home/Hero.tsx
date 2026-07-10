@@ -8,11 +8,11 @@ import { gsap } from "@/lib/gsap";
 import ColorDots from "@/components/ColorDots";
 
 const ROTATING_WORDS = [
-  { text: "Purposeful.", color: "#7B3FA0" }, // Violet
+  { text: "Unique.", color: "#7B3FA0" }, // Violet
   { text: "Creative.", color: "#F26522" },   // Orange
   { text: "Focused.", color: "#3B9EDC" },    // Sky
   { text: "Beautiful.", color: "#F0047F" },  // Magenta
-  { text: "Purposeful.", color: "#7B3FA0" }, // Duplicate for seamless infinite slide
+  { text: "Unique.", color: "#7B3FA0" }, // Duplicate for seamless infinite slide
 ];
 
 export default function Hero() {
