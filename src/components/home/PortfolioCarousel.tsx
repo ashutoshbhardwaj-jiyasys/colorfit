@@ -70,21 +70,7 @@ export default function PortfolioCarousel() {
                 quality={90}
               />
 
-              {/* Top-left label */}
-              <p
-                className="absolute top-6 left-6 z-20 font-black uppercase tracking-[0.22em] text-[10px]"
-                style={{ color: "rgba(255,255,255,0.45)" }}
-              >
-                Portfolio Showcase
-              </p>
-
-              {/* Top-right counter */}
-              <p
-                className="absolute top-6 right-6 z-20 font-mono text-xs font-bold tracking-widest"
-                style={{ color: "rgba(255,255,255,0.45)" }}
-              >
-                {slide.num}&nbsp;/&nbsp;{String(SLIDES.length).padStart(2, "0")}
-              </p>
+              
             </div>
 
             {/* Caption below the frame */}
