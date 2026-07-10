@@ -27,7 +27,7 @@ export default function ContactPage() {
           pb="pb-6"
         />
         <div className="container-x flex flex-col items-center text-center">
-          <p className="max-w-2xl text-lg text-muted leading-relaxed font-sans">
+          <p className="max-w-2xl 2xl:max-w-4xl text-lg text-muted leading-relaxed font-sans">
             Tell us a little about your product and where you want to take it. We reply to all inquiries within two business days.
           </p>
         </div>

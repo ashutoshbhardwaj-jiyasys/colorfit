@@ -57,7 +57,7 @@ export default function AboutPage() {
           pb="pb-6"
         />
         <div className="container-x flex flex-col items-center text-center">
-          <p className="max-w-2xl text-lg text-muted leading-relaxed font-sans">
+          <p className="max-w-2xl 2xl:max-w-4xl text-lg text-muted leading-relaxed font-sans">
             Colorfit is a packaging and design company. Our brand reflects our conviction: vibrant, precise, and always purposeful. We treat every client&apos;s brand as if it were our own.
           </p>
         </div>
@@ -128,10 +128,10 @@ export default function AboutPage() {
           pb="pb-8"
         />
         <div className="container-x flex flex-col items-center text-center">
-          <p className="text-muted mb-12 max-w-2xl text-base leading-relaxed">
+          <p className="text-muted mb-12 max-w-2xl 2xl:max-w-4xl text-base leading-relaxed">
             For all brand-related questions, approvals, and asset requests, please reach out to the relevant Colorfit team.
           </p>
-          <div className="grid gap-8 sm:grid-cols-3 text-left w-full max-w-3xl">
+          <div className="grid gap-8 sm:grid-cols-3 text-left w-full max-w-3xl 2xl:max-w-5xl">
             <div>
               <h4 className="text-xs uppercase tracking-[0.2em] text-muted font-bold">Brand Manager</h4>
               <a href="mailto:brandteam@colorfit.in" className="mt-2 block font-display text-base font-bold text-ink hover:text-accent transition-colors">

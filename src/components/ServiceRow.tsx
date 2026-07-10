@@ -50,10 +50,10 @@ export default function ServiceRow({
         </div>
 
         {/* Service Details & Tags */}
-        <div className="md:col-span-7 relative min-h-[120px] md:min-h-[140px] flex items-center z-10">
+        <div className="md:col-span-7 relative min-h-[120px] md:min-h-[140px] flex items-start z-10">
           {/* Default View: description & tags */}
-          <div className="w-full transition-all duration-500 ease-out transform group-hover:-translate-x-12 group-hover:opacity-0 group-hover:pointer-events-none">
-            <p className="max-w-xl text-lg text-muted font-sans leading-relaxed">
+          <div className="w-full group-hover:hidden md:group-hover:block md:transition-all md:duration-500 md:ease-out md:transform md:group-hover:-translate-x-12 md:group-hover:opacity-0 md:group-hover:pointer-events-none">
+            <p className="max-w-xl 2xl:max-w-3xl text-lg text-muted font-sans leading-relaxed">
               {description}
             </p>
             <ul className="mt-6 flex flex-wrap gap-2">
@@ -69,9 +69,9 @@ export default function ServiceRow({
           </div>
 
           {/* Hover View: extra details sliding in from the right */}
-          <div className="absolute inset-0 w-full h-full flex flex-col justify-center transition-all duration-500 ease-out transform translate-x-12 opacity-0 pointer-events-none group-hover:translate-x-0 group-hover:opacity-100 group-hover:pointer-events-auto">
+          <div className="hidden group-hover:flex md:flex md:absolute md:inset-0 w-full md:h-full flex-col justify-center md:transition-all md:duration-500 md:ease-out md:transform md:translate-x-12 md:opacity-0 md:pointer-events-none md:group-hover:translate-x-0 md:group-hover:opacity-100 md:group-hover:pointer-events-auto">
             {extraInfo && (
-              <p className="max-w-xl text-lg text-white/90 font-sans leading-relaxed font-medium">
+              <p className="max-w-xl 2xl:max-w-3xl text-lg text-white/90 font-sans leading-relaxed font-medium">
                 {extraInfo}
               </p>
             )}
@@ -88,6 +88,6 @@ export default function ServiceRow({
           </div>
         </div>
       </article>
-    </Reveal>
+    </Reveal >
   );
 }

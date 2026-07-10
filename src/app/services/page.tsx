@@ -35,7 +35,7 @@ export default function ServicesPage() {
           pb="pb-6"
         />
         <div className="container-x flex flex-col items-center text-center">
-          <p className="max-w-2xl text-lg text-muted leading-relaxed font-sans">
+          <p className="max-w-2xl 2xl:max-w-4xl text-lg text-muted leading-relaxed font-sans">
             We integrate color science, structural design, and layout precision across every format so your brand is flawless from mockup to print.
           </p>
         </div>
@@ -67,10 +67,10 @@ export default function ServicesPage() {
           pb="pb-8"
         />
         <div className="container-x flex flex-col items-center text-center">
-          <p className="text-muted mb-12 text-base leading-relaxed max-w-2xl">
+          <p className="text-muted mb-12 text-base leading-relaxed max-w-2xl 2xl:max-w-4xl">
             We hold our physical outputs to the highest industry benchmarks. All files are pre-press calibrated and cross-checked against substrate limitations before submission.
           </p>
-          <div className="grid gap-8 sm:grid-cols-2 text-left w-full max-w-4xl">
+          <div className="grid gap-8 sm:grid-cols-2 text-left w-full max-w-4xl 2xl:max-w-6xl">
             <div className="border border-line rounded-xl p-6 hover:border-brand-magenta/30 transition-colors duration-300">
               <h3 className="font-display font-black text-lg text-ink">Dieline &amp; Bleed standards</h3>
               <p className="text-muted text-sm mt-3 leading-relaxed">

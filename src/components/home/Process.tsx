@@ -89,7 +89,7 @@ export default function Process() {
         {STEPS.map((s) => (
           <article
             key={s.num}
-            className="flex w-[80vw] shrink-0 snap-start flex-col justify-between rounded-2xl border border-paper/10 bg-paper/[0.03] p-8 md:h-[44vh] md:w-[40vw] md:p-12 hover:border-accent/30 transition-colors duration-300"
+            className="flex w-[80vw] shrink-0 snap-start flex-col justify-between rounded-2xl border border-paper/10 bg-paper/[0.03] p-8 md:h-[44vh] md:w-[40vw] 2xl:w-[30vw] 3xl:w-[25vw] md:p-12 hover:border-accent/30 transition-colors duration-300"
           >
             <span className="font-display text-6xl font-black text-accent md:text-8xl">
               {s.num}

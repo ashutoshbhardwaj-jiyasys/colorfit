@@ -8,11 +8,11 @@ import { gsap } from "@/lib/gsap";
 import ColorDots from "@/components/ColorDots";
 
 const ROTATING_WORDS = [
-  { text: "Purposeful.", color: "#7B3FA0" }, // Violet
+  { text: "Unique.", color: "#7B3FA0" }, // Violet
   { text: "Creative.", color: "#F26522" },   // Orange
   { text: "Focused.", color: "#3B9EDC" },    // Sky
   { text: "Beautiful.", color: "#F0047F" },  // Magenta
-  { text: "Purposeful.", color: "#7B3FA0" }, // Duplicate for seamless infinite slide
+  { text: "Unique.", color: "#7B3FA0" }, // Duplicate for seamless infinite slide
 ];
 
 export default function Hero() {
@@ -114,7 +114,7 @@ export default function Hero() {
         <div className="w-full grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-center mb-14">
 
           {/* Left Column: Typography Block */}
-          <div className="md:col-span-7 lg:col-span-7 flex flex-col items-start text-left justify-center">
+          <div className="md:col-span-6 lg:col-span-6 flex flex-col items-start text-left justify-center">
             <div className="hero-eyebrow mb-8 flex items-center gap-3">
               <ColorDots size="sm" />
               <p className="text-[10px] font-black uppercase tracking-[0.25em] text-muted">
@@ -122,7 +122,7 @@ export default function Hero() {
               </p>
             </div>
 
-            <h1 className="font-display text-[clamp(2.8rem,6.8vw,6.8rem)] font-black leading-[0.95] text-ink tracking-tighter uppercase max-w-4xl text-left w-full">
+            <h1 className="font-display text-[clamp(2.8rem,6.8vw,9rem)] font-black leading-[0.95] text-ink tracking-tighter uppercase max-w-4xl 2xl:max-w-6xl text-left w-full">
               <span className="hero-title-line block">Vibrant.</span>
               <span className="hero-title-line block">Precise.</span>
               <span className="hero-title-line block relative overflow-hidden h-[1.05em] w-full">
@@ -144,21 +144,21 @@ export default function Hero() {
               </span>
             </h1>
 
-            <p className="hero-sub mt-8 max-w-xl text-base md:text-lg text-muted leading-relaxed font-sans">
+            <p className="hero-sub mt-8 max-w-xl 2xl:max-w-2xl text-base md:text-lg text-muted leading-relaxed font-sans">
               Colorfit is a premier packaging design studio crafting high-impact brand identities, custom product packaging, and strategic graphic designs. We combine precise color strategy with structural expertise to build sustainable, shelf-ready packaging solutions that captivate consumers.
             </p>
           </div>
 
           {/* Right Column: Packaging Image Mockup */}
-          <div className="hero-placeholder md:col-span-5 lg:col-span-5 flex justify-center md:justify-end lg:justify-end w-full">
-            <div className="relative w-full max-w-[500px] aspect-square overflow-hidden bg-transparent">
+          <div className="hero-placeholder md:col-span-6 lg:col-span-6 flex justify-center md:justify-end lg:justify-end w-full">
+            <div className="relative w-full max-w-[640px] 2xl:max-w-[820px] 3xl:max-w-[960px] bg-transparent">
               <Image
                 src="/images/mockup-hero.jpg"
                 alt="Colorfit Brand Packaging Mockup"
-                width={600}
-                height={600}
+                width={4153}
+                height={2608}
                 priority
-                className="w-full h-full object-cover"
+                className="w-full h-auto object-contain"
               />
             </div>
           </div>
