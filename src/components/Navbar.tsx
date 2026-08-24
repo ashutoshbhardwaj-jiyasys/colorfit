@@ -102,7 +102,7 @@ export default function Navbar() {
       {/* Mobile menu */}
       <div
         className={`overflow-hidden rounded-3xl border border-white/10 bg-[#111111]/90 backdrop-blur-lg md:hidden mt-2 ${
-          open ? "max-h-96" : "max-h-0"
+          open ? "max-h-96 visible" : "max-h-0 invisible"
         } transition-[max-height] duration-500 ease-out-expo`}
       >
         <nav className="flex flex-col gap-1 py-4 px-6">

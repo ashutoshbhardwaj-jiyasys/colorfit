@@ -1,8 +1,3 @@
-"use client";
-
-import { useRef } from "react";
-import { useGSAP } from "@gsap/react";
-import { gsap, ScrollTrigger } from "@/lib/gsap";
 import SectionHeader from "@/components/SectionHeader";
 
 const STEPS = [
@@ -29,79 +24,38 @@ const STEPS = [
 ];
 
 export default function Process() {
-  const root = useRef<HTMLDivElement>(null);
-  const track = useRef<HTMLDivElement>(null);
-
-  useGSAP(
-    () => {
-      const trackEl = track.current;
-      if (!trackEl) return;
-
-      const mm = gsap.matchMedia();
-
-      // Horizontal pinned scroll on larger screens only.
-      mm.add("(min-width: 768px)", () => {
-        const distance = trackEl.scrollWidth - window.innerWidth;
-        const tween = gsap.to(trackEl, {
-          x: -distance,
-          ease: "none",
-          scrollTrigger: {
-            trigger: root.current,
-            start: "top top",
-            end: () => `+=${distance}`,
-            scrub: 1,
-            pin: true,
-            anticipatePin: 1,
-            invalidateOnRefresh: true,
-          },
-        });
-        return () => tween.kill();
-      });
-
-      return () => {
-        mm.revert();
-        ScrollTrigger.refresh();
-      };
-    },
-    { scope: root }
-  );
-
   return (
-    <section ref={root} className="bg-ink text-paper md:h-screen md:overflow-hidden py-16 md:py-0">
-      <SectionHeader
-        eyebrow="How we work"
-        title="A process built for shelf impact."
-        pt="pt-16 md:pt-24"
-        pb="pb-0"
-        lightText={true}
-      />
+    <section id="process" className="bg-ink text-paper py-16 md:py-24">
+      <div className="container-x">
+        <SectionHeader
+          eyebrow="How we work"
+          title="A process built for shelf impact."
+          pt="pt-0"
+          pb="pb-16"
+          lightText={true}
+        />
 
-      {/* Mobile Swipe Indicator */}
-      <div className="flex items-center justify-center gap-2 text-[10px] font-bold uppercase tracking-[0.2em] text-paper/30 md:hidden mt-6 select-none">
-        <span>Swipe to explore</span>
-        <span className="inline-block animate-bounce-horizontal">→</span>
-      </div>
-
-      <div
-        ref={track}
-        className="mt-12 flex gap-6 px-6 overflow-x-auto snap-x snap-mandatory no-scrollbar md:mt-20 md:overflow-x-visible md:snap-none md:flex-nowrap md:px-16"
-      >
-        {STEPS.map((s) => (
-          <article
-            key={s.num}
-            className="flex w-[80vw] shrink-0 snap-start flex-col justify-between rounded-2xl border border-paper/10 bg-paper/[0.03] p-8 md:h-[44vh] md:w-[40vw] 2xl:w-[30vw] 3xl:w-[25vw] md:p-12 hover:border-accent/30 transition-colors duration-300"
-          >
-            <span className="font-display text-6xl font-black text-accent md:text-8xl">
-              {s.num}
-            </span>
-            <div>
-              <h3 className="font-display text-3xl font-black md:text-4xl text-white">
-                {s.title}
-              </h3>
-              <p className="mt-4 max-w-sm text-paper/60 text-sm leading-relaxed">{s.body}</p>
-            </div>
-          </article>
-        ))}
+        {/* Static 4-up grid: 1 col mobile / 2 col tablet / 4 col desktop. No pin, no horizontal scroll. */}
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-4">
+          {STEPS.map((s) => (
+            <article
+              key={s.num}
+              className="flex h-full flex-col justify-between rounded-2xl border border-paper/10 bg-paper/[0.03] p-8 transition-colors duration-300 hover:border-accent/30 xl:min-h-[340px] 2xl:p-10"
+            >
+              <span className="font-display text-6xl font-black text-accent md:text-7xl 2xl:text-8xl">
+                {s.num}
+              </span>
+              <div className="mt-10">
+                <h3 className="font-display text-3xl font-black text-white md:text-4xl">
+                  {s.title}
+                </h3>
+                <p className="mt-4 max-w-sm text-sm leading-relaxed text-paper/60">
+                  {s.body}
+                </p>
+              </div>
+            </article>
+          ))}
+        </div>
       </div>
     </section>
   );
