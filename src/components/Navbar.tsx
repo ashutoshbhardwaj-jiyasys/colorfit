@@ -28,7 +28,7 @@ export default function Navbar() {
         bg.kill();
       };
     },
-    { scope: headerRef }
+    { scope: headerRef },
   );
 
   return (
