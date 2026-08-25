@@ -30,7 +30,7 @@ export default function Marquee() {
         ease: "none",
       });
     },
-    { scope: track }
+    { scope: track },
   );
 
   const Row = () => (

@@ -7,7 +7,10 @@ interface BrandLogoProps {
   light?: boolean;
 }
 
-export default function BrandLogo({ className = "", light = false }: BrandLogoProps) {
+export default function BrandLogo({
+  className = "",
+  light = false,
+}: BrandLogoProps) {
   const logoSrc = light ? "/logo-white.png" : "/logo-black.png";
 
   return (
@@ -23,4 +26,3 @@ export default function BrandLogo({ className = "", light = false }: BrandLogoPr
     </div>
   );
 }
-
