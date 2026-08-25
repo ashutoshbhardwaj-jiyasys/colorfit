@@ -58,4 +58,4 @@ src/
 - All animations respect `prefers-reduced-motion`.
 - The Process section uses a pinned horizontal scroll on screens ≥ 768px and stacks vertically on mobile.
 
-  -Please refer this for verification .
+  -Please refer this for any details.
